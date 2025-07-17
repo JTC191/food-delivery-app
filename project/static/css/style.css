@@ -1,0 +1,213 @@
+/* General styling */
+body { /* Ensures child elements stack vertically by default */
+    display: flex;              
+    flex-direction: column;     
+}
+
+html, body {
+    height: 100%;  /* Ensures the body and html take up the full height of the viewport */
+    margin: 0;     
+}
+
+/* Visual settings for the logo, slogan, and header */
+.theme-highlight h1 {
+    font-size: 4rem; 
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.theme-highlight p { 
+    font-size: 1.3rem;
+    font-style: italic;
+    margin: 0;
+}
+
+header {           
+    background-color: #FF5733;  /* Header background color to classic orange in theme with a food delivery website*/
+    color: white;               /* Text color for contrast */
+    text-align: center;         /* Centers the header text */
+}
+
+/* General visual settings for the product details page */
+.col { 
+    text-align: center;         /* Centers content within the column */
+    padding: 15px;
+    border: 2px solid #F9F9F9;  /* Light border */
+    border-radius: 10px;        /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+}
+
+/* Styling for the left section of the product details page */
+.col-flex {
+    display: flex;
+    flex-direction: column;     /* Ensures nested items are stacked vertically */
+    gap: 20px;                  
+    padding: 20px;             
+    flex: 0 0 27.5%;              /* Column takes up 25% of available width */
+    background-image: url('../img/Salad_Background.webp');
+    background-size: cover;     /* Ensures image covers the entire column */
+    background-position: center;
+    overflow-y: auto;
+    min-height: 300px;         
+}
+
+.col-box {
+    background-color: #ffffff;  
+    padding: 20px;              
+    text-align: center;         
+    border: 2px solid #F9F9F9;  
+    border-radius: 10px;        /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+}
+
+.col-box h3 {
+    font-size: 1.25rem;         
+    font-weight: 600;          
+    color: #333;              
+}
+
+.col-box p {
+    font-size: 1rem;            
+    color: #666;                
+}
+
+.col-box img {
+    max-width: 65%;             /* Limits image width */
+    height: auto;               
+    border-radius: 10px;        /* Rounded corners for the image */
+}
+
+/* Styling for the middle section of the product details page */
+.showcase-column {
+    padding: 20px;
+    background-color: white;
+    flex: 0 0 45%;            /* Middle section takes 45% of available width */
+    overflow-y: auto;           
+    border-left: 1px solid #ddd; /* Light border */
+}
+
+.showcase-heading {
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.75rem;
+    color: #2E8B57;
+    margin-bottom: 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 0.5rem;
+
+    /* Remove centering */
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.dish-card {
+    padding: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 15px;
+
+    width: 80%;           /* Full width of parent container */
+    max-width: none;       /* Remove any upper limit */
+    margin-left: 0;
+    margin-right: 0;
+}
+
+
+.dish-card img {
+    width: 80%;
+    max-height: 200px;                  
+    object-fit: cover;                  
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.dish-card p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Styling for the right section of the product details page */
+.restaurant-spotlight {
+    flex: 0 0 27.5%; 
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    color: black;
+    overflow-y: auto;
+}
+
+.restaurant-card {
+    padding: 20px; /* Provides 20px space around the content inside the card */
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.restaurant-img {
+    width: 40%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.restaurant-description {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    white-space: normal;
+    overflow: visible; /* Content will overflow the box and be displayed outside the element’s boundaries */
+    text-overflow: unset; /* Resets any custom handling of overflowing text (defaults to clipping without ellipsis) */
+    margin-top: 0;
+    text-align: left !important;
+}
+
+/* Styling for the table in the checkout page */
+/* Apply styles only to the body with the class 'dish-card' */
+body.dish-card {
+    background-image: url('../img/Vegetables_Pic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dish-card {
+    background-image: url('../img/Vegetables_Pic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.dish-card th, .dish-card td {
+    border: 1px solid black; 
+    padding: 8px;
+}
+
+.dish-card thead th {
+    border: 1px solid black; 
+}
+
+.dish-card tr {
+    border: 1px solid black;
+}
+
+.dish-card .form-control {
+    border: 1px solid black;
+}
+
+.dish-card .card {
+    border: 1px solid black;
+}
+
+.dish-card .dropdown-menu {
+    border: 1px solid black;
+}

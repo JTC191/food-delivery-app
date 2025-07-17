@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+  body {
+    background-image: url("{{ url_for('static', filename='img/Salad_Background.webp') }}");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  main {
+    flex-grow: 1;
+  }
+</style>
+
+<main>
+  <div class="container">
+    <div class="card p-4 shadow-sm d-flex flex-column" style="border-radius: 15px; background-color: rgba(255, 255, 255, 0.95);">
+      <form action="/" style="flex-shrink: 0;">
+              <button type="submit" 
+                      style="padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+                <strong>Home</strong>
+              </button>
+            </form>
+
+      <div class="row flex-grow-1 align-items-stretch">
+        <!-- Restaurant Info -->
+        <div class="col-12 col-md-3">
+          <h3 style="color: #FF5722; font-weight: bold;">Restaurant Name</h3>
+          <img src="{{ url_for('static', filename='img/' ~ restaurant.restaurantImage) }}" 
+               alt="{{ restaurant.restaurantName }} Logo" 
+               class="img-fluid mb-2" 
+               style="max-width: 150px; height: auto;">
+          <div style="color: #444;">
+            <span style="color: gold; font-size: 1.2em;">★★★★★</span>
+            <span class="restaurant-description" style="margin-left: 5px;">{{ restaurant.averageScore }}/5</span>
+          </div>
+        </div>
+
+        <!-- Food Info -->
+        <div class="col-12 col-md-5 text-center"> 
+          <h3 style="color: #FF5722; font-weight: bold;">{{ food.foodName }}</h3>
+          <img src="{{ url_for('static', filename='img/' ~ food.foodImage) }}" alt="{{ food.foodName }}" class="img-fluid mb-2" style="border-radius: 10px;">
+          <p style="color: #28a745; font-weight: 900; font-size: 1.2em;">
+            ${{ "%.2f"|format(food.foodPrice) }} per serve
+          </p>
+        </div>
+
+        <!-- Description -->
+        <div class="col-12 col-md-4">
+          <h3 style="color: #FF5722; font-weight: bold;">Description</h3>
+          <p>{{ food.foodDescription }}</p>
+        </div>
+      </div>
+
+      <!-- Quantity & Buttons -->
+      <div class="row mt-4">
+          <div class="col-12">
+              {% if session['user'] %}
+              <form method="POST"
+                  action="{{ url_for('main.adding_to_basket', food_id = food.foodID)}}">
+                  <div class="dropdown">
+                      <label for="quantity">How many would you like?</label>
+                      <select name="quantity" id="quantity" style="padding: 10px; font-size: 16px;">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                      </select>
+              </div>
+                
+          <button type='submit' style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+                      <strong style="color: white;">Add to cart - ${{food.foodPrice}}</strong>
+          </button>
+          {% else %}
+          <a href='/'style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+                      <strong style="color: white;">Log in to add to cart - ${{food.foodPrice}}</strong>
+          </a>
+          {% endif %}
+                  
+              </form>
+          </div>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
