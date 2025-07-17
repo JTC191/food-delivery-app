@@ -82,6 +82,26 @@ If you'd like a walk-through or want to know more about the architecture, feel f
 ---
 
 ## 📬 Contact
+This project was completed as a group assignment for IFN582 (Web Computing) at QUT by Joshua Cox and Alek Karoli.
 
-Built by Joshua Cox and Alek Karoli  
-Graduate Certificate in IT – QUT
+Joshua Cox
+- Built the entire front-end interface using HTML and CSS
+
+- Worked on **models.py** and contributed to **db.py** (ORM schema and database interaction)
+
+- Developed the dynamic homepage loading (restaurant listings)
+
+- Contributed to the SQL database design and schema creation
+
+- Participated in testing and debugging throughout the development process
+
+Alek Karoli
+- Implemented user authentication and session management
+
+- Built the basket/cart functionality tied to user accounts
+
+- Developed admin-only access control and role-based route restrictions
+
+- Shared responsibility for **db.py** logic and SQL database structure
+
+- Participated in testing and debugging
