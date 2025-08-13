@@ -11,18 +11,18 @@ It simulates a real-world online ordering system, complete with user accounts, r
 - Admin-only access and functionality  
 - Dynamic cart system tied to a user's basket  
 - Relational MySQL database schema  
-- Flask backend with HTML/CSS/JS frontend  
+- Flask backend with HTML/CSS/Flask frontend  
 
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - Python (Flask)  
 - HTML/CSS/JavaScript  
 - MySQL  
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
-### 📦 Install Dependencies
+### Install Dependencies
 
 #### Windows  
 py -m pip install -r requirements.txt
@@ -35,7 +35,7 @@ Then update the `mysqlhome` variable in `mac.sh` if needed. Run:
 chmod +x ./mac.sh && sudo ./mac.sh
 
 
-## 🗃️ Database Setup
+## Database Setup
 
 1. Execute the `Assignment2.SQL` script to create and populate the database.  
 2. Ensure the following line is updated in your Flask config:  
@@ -44,7 +44,7 @@ app.config['MYSQL_PASSWORD'] = 'your_password_here'
 > Replace `'your_password_here'` with your actual MySQL root password.
 
 
-## 🧱 Database Structure
+## Database Structure
 
 - Food — Stores food items  
 - Restaurant — Stores restaurants  
@@ -55,7 +55,7 @@ app.config['MYSQL_PASSWORD'] = 'your_password_here'
 - Selection — Items added to a user's cart  
 
 
-## 👤 Preloaded Accounts
+## Preloaded Accounts
 
 This system comes preloaded with:  
 - 2 Admin accounts  
@@ -63,13 +63,13 @@ This system comes preloaded with:
 
 You can create your own test users or edit the seeding logic in `Assignment2.SQL`.
 
-Alternatively, an admin account details are provided below:
+Alternatively, admin account details for one admin are provided below:
 username: admin
 password: admin
 
 ---
 
-## 📌 Notes
+## Notes
 
 This repository is a clean, public version of the original private assignment submission.  
 All credentials and sensitive data have been removed.  
@@ -77,7 +77,7 @@ If you'd like a walk-through or want to know more about the architecture, feel f
 
 ---
 
-## 📬 Contact
+## Contact
 This project was completed as a group assignment for IFN582 (Web Computing) at QUT by Joshua Cox and Alek Karoli.
 
 Joshua Cox
