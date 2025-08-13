@@ -64,7 +64,9 @@ This system comes preloaded with:
 You can create your own test users or edit the seeding logic in `Assignment2.SQL`.
 
 Alternatively, admin account details for one admin are provided below:
+
 username: admin
+
 password: admin
 
 ---
