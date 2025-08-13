@@ -25,7 +25,8 @@
 /* Styling for the home page (Second Column) */
 .showcase-column {
     background-color: white;
-    flex: 0 0 45%;            /* Middle section takes 45% of available width */          
+    flex: 0 0 45%;            /* Middle section takes 45% of available width */    
+    overflow-y: auto;      
 }
 
 .showcase-heading {
