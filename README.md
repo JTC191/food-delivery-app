@@ -1,11 +1,10 @@
-# 🍔 Food Delivery Web App
+# Food Delivery Web App
 
 A full-stack food delivery platform built for IFN582 (Web Computing) at QUT.  
 It simulates a real-world online ordering system, complete with user accounts, restaurant listings, cart functionality, and admin features.
 
----
 
-## 🚀 Features
+## Features
 
 - User registration and login  
 - Restaurant and food item management  
@@ -14,16 +13,12 @@ It simulates a real-world online ordering system, complete with user accounts, r
 - Relational MySQL database schema  
 - Flask backend with HTML/CSS/JS frontend  
 
----
 
 ## 🛠 Tech Stack
 
 - Python (Flask)  
 - HTML/CSS/JavaScript  
 - MySQL  
-- SQLAlchemy  
-
----
 
 ## ⚙️ Setup Instructions
 
@@ -39,7 +34,6 @@ sudo find /usr -name mysql.h
 Then update the `mysqlhome` variable in `mac.sh` if needed. Run:  
 chmod +x ./mac.sh && sudo ./mac.sh
 
----
 
 ## 🗃️ Database Setup
 
@@ -49,7 +43,6 @@ app.config['MYSQL_PASSWORD'] = 'your_password_here'
 
 > Replace `'your_password_here'` with your actual MySQL root password.
 
----
 
 ## 🧱 Database Structure
 
@@ -61,7 +54,6 @@ app.config['MYSQL_PASSWORD'] = 'your_password_here'
 - Basket — One basket per user (auto-generated on sign-up)  
 - Selection — Items added to a user's cart  
 
----
 
 ## 👤 Preloaded Accounts
 
