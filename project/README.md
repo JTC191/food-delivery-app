@@ -69,7 +69,11 @@ This system comes preloaded with:
 - 2 Admin accounts  
 - 4 Basic user accounts  
 
-❗ For security, default usernames/passwords have been removed from the public repo. You can create your own test users or edit the seeding logic in `Assignment2.SQL`.
+You can create your own test users or edit the seeding logic in `Assignment2.SQL`.
+
+Alternatively, an admin account details are provided below:
+username: admin
+password: admin
 
 ---
 
