@@ -40,16 +40,15 @@
 
 .dish-card {
     background-color: #f9f9f9;
-    width: 70%;           /* Full width of parent container */
+    width: 80%;           
 }
 
 
 .dish-card img {
-    width: 100%;
-    max-height: 200px;                  
-    object-fit: cover;                  
-    border-radius: 8px;
-    margin-bottom: 8px;
+    width: 80%;
+    max-height: 250px;                  
+    object-fit: fill;                  
+    margin-bottom: 10px;
 }
 
 .dish-card p {
@@ -60,6 +59,20 @@
     font-weight: bold;
 }
 
+/* Styling for the home page (Third Column) */
+.restaurant-spotlight {
+    flex: 0 0 27.5%; 
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    color: black;
+    overflow-y: auto;
+}
+
+.restaurant-column {
+    flex: 0 0 27.5%; 
+    overflow-y: auto;
+}
 
 /* General styling */
 body { /* Ensures child elements stack vertically by default */
@@ -119,15 +132,7 @@ header {
 }
 
 
-/* Styling for the right section of the product details page */
-.restaurant-spotlight {
-    flex: 0 0 27.5%; 
-    padding: 20px;
-    background-color: #ffffff;
-    border-left: 1px solid #ddd;
-    color: black;
-    overflow-y: auto;
-}
+
 
 .restaurant-card {
     padding: 20px; /* Provides 20px space around the content inside the card */

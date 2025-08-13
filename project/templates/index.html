@@ -28,7 +28,7 @@
 
     <!-- Column 2 = 45% of page width -->
     <div class="showcase-column" style="background-color: #f5f5dc">
-      <h3 class="showcase-heading display-5" style="font-weight: 500;">
+      <h3 class="showcase-heading display-6" style="font-weight: 500;">
         Search Results: {{ request.args.get('category', 'All Items') }}
       </h3>
 
@@ -76,8 +76,8 @@
     </div>
 
     <!-- Column 3 = 25% of page width -->
-    <div class="restaurant-spotlight" style="background-color: #f5f5dc; padding: 20px; overflow-y: auto;">
-      <h3 class="showcase-heading display-5" style="font-weight: 500;">Restaurant Spotlight</h3>
+    <div class="restaurant-column" style="background-color: #f5f5dc; overflow-y: auto; padding: 0 20px;">
+      <h3 class="showcase-heading display-6" style="font-weight: 500;">Restaurant Spotlight</h3>
 
       {% for restaurant in restaurants %}
         {% set r_img = (restaurant.restaurantImage | replace('static/', '') | replace('img/', '')) %}
