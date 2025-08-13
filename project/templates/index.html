@@ -2,105 +2,108 @@
 
 {% block content %}
 
-<!-- Testing -->
 <div class="container-fluid" style="width:100%;">
-    <main style="display: flex; height: 100vh; flex-wrap: nowrap;">
+  <main style="display: flex; height: 100vh; flex-wrap: nowrap;">
 
-        <!-- Column 1 (25% width of page) -->
-        <div class="col-flex" style="padding: 10px;">
-            <div class="col-box mb-4">
-                <h3>Become a Healthy Feeds Dasher</h3>
-                <p>Join our delivery team and earn while you work!</p>
-                <img src="../static/img/Delivery_Biker.png" alt="Biker" class="img-fluid" />
-            </div>
+    <!-- Column 1 (25%) -->
+    <div class="col-flex" style="padding: 10px;">
+      <div class="col-box mb-4">
+        <h3>Become a Healthy Feeds Dasher</h3>
+        <p>Join our delivery team and earn while you work!</p>
+        <img src="{{ url_for('static', filename='img/Delivery_Biker.png') }}" alt="Biker" class="img-fluid" />
+      </div>
 
-            <div class="col-box mb-4">
-                <h3>Partner with Us</h3>
-                <p>Partner with us to bring healthy food to your customers.</p>
-                <img src="../static/img/Handshake.jpg" alt="Handshake" class="img-fluid" />
-            </div>
+      <div class="col-box mb-4">
+        <h3>Partner with Us</h3>
+        <p>Partner with us to bring healthy food to your customers.</p>
+        <img src="{{ url_for('static', filename='img/Handshake.jpg') }}" alt="Handshake" class="img-fluid" />
+      </div>
 
-            <div class="col-box mb-4">
-                <h3>Download the App</h3>
-                <p>Get the HealthyFeeds app to browse, order, and enjoy!</p>
-                <img src="../static/img/Phone_App.jpg" alt="Phone" class="img-fluid" />
+      <div class="col-box mb-4">
+        <h3>Download the App</h3>
+        <p>Get the HealthyFeeds app to browse, order, and enjoy!</p>
+        <img src="{{ url_for('static', filename='img/Phone_App.jpg') }}" alt="Phone" class="img-fluid" />
+      </div>
+    </div>
+
+    <!-- Column 2 (50%) -->
+    <div class="showcase-column" style="background-color: #f5f5dc; padding: 20px; overflow-y: auto;">
+      <h3 class="showcase-heading">
+        Our Showcase: {{ request.args.get('category', 'All Items') }}
+      </h3>
+
+      {% for food in foods %}
+        {% set food_img = (food.foodImage | replace('static/', '') | replace('img/', '')) %}
+        <div class="dish-card mb-4 p-3 border rounded">
+          <img
+            src="{{ url_for('static', filename='img/' ~ food_img) }}"
+            alt="{{ food.foodName }}"
+            class="img-fluid mb-2"
+          />
+
+          <p class="restaurant-description">
+            <a href="{{ url_for('main.about', food_id=food.foodID) }}">{{ food.foodName }}</a>
+          </p>
+
+          {% if session['user'] %}
+            <div class="row mt-4">
+              <div class="col-12">
+                <form method="POST" action="{{ url_for('main.adding_to_basket', food_id=food.foodID) }}">
+                  <div class="dropdown">
+                    <label for="quantity">How many would you like?</label>
+                    <select name="quantity" id="quantity" class="form-select w-auto">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                    </select>
+                  </div>
+                  <button type="submit"
+                          style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+                    <strong style="color: white;">Add to cart - ${{ food.foodPrice }}</strong>
+                  </button>
+                </form>
+              </div>
             </div>
+          {% else %}
+            <a href="/"
+               style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+              <strong style="color: white;">Log in to add to cart - ${{ food.foodPrice }}</strong>
+            </a>
+          {% endif %}
         </div>
+      {% endfor %}
+    </div>
 
-        <!-- Column 2 (50% width of page) -->
-        <div class="showcase-column" style="background-color: #f5f5dc; padding: 20px; overflow-y: auto;">
-            <h3 class="showcase-heading">
-                Our Showcase: {{ request.args.get('category', 'All Items') }}
-            </h3>
-            
-            {% for food in foods %}
-            <div class="dish-card mb-4 p-3 border rounded">
-                <img src="{{ url_for('static', filename='img/' + food.foodImage) }}" alt="Healthy Dish 1" class="img-fluid mb-2" />
+    <!-- Column 3 (25%) -->
+    <div class="restaurant-spotlight" style="background-color: #f5f5dc; padding: 20px; overflow-y: auto;">
+      <h3 class="showcase-heading">Restaurant Spotlight</h3>
 
-                <p class="restaurant-description">
-                    <a href="{{ url_for('main.about', food_id=food.foodID) }}">{{ food.foodName }}</a>
-                </p>
-
-           
-            <div class="dish-card">
-                <img src="{{ url_for('static', filename='img/' + food.foodImage) }}" alt="Healthy Dish 1"> 
-                
-                <p class = "restaurant-description"><a href="{{ url_for('main.about', food_id=food.foodID) }}">{{ food.foodName }}</a></p>
-
-                {% if session['user'] %}
-                <div class="row mt-4">
-                    <div class="col-12">
-                       
-                        <form method="POST"
-                            action="{{ url_for('main.adding_to_basket', food_id = food.foodID)}}">
-                            <div class="dropdown">
-                                <label for="quantity">How many would you like?</label>
-                                <select name="quantity" id="quantity" class="form-select w-auto">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                        </div>
-                            <button type='submit' style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
-                                <strong style="color: white;">Add to cart - ${{food.foodPrice}}</strong>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                {% else %}
-                    <a href='/'style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
-                                <strong style="color: white;">Log in to add to cart - ${{food.foodPrice}}</strong>
-                    </a>
-                {% endif %}
-            </div>
-            {% endfor %}
+      {% for restaurant in restaurants %}
+        {% set r_img = (restaurant.restaurantImage | replace('static/', '') | replace('img/', '')) %}
+        <div class="restaurant-card mb-4 p-3 border rounded">
+          <img
+            src="{{ url_for('static', filename='img/' ~ r_img) }}"
+            alt="{{ restaurant.restaurantName }} Logo"
+            class="img-fluid mb-2 restaurant-img"
+          />
+          <p class="restaurant-description">
+            {{ restaurant.restaurantName }} ({{ restaurant.averageScore }} ★)
+          </p>
+          <p class="restaurant-description">
+            {{ restaurant.restaurantDescription }}
+          </p>
+          <p class="restaurant-description">
+            <a href="https://www.google.com/search?q={{ restaurant.restaurantName | urlencode }}" target="_blank">
+              More Info
+            </a>
+          </p>
         </div>
+      {% endfor %}
+    </div>
 
-        <!-- Column 3 (25% width of page) -->
-        <div class="restaurant-spotlight" style="background-color: #f5f5dc; padding: 20px; overflow-y: auto;">
-            <h3 class="showcase-heading">Restaurant Spotlight</h3>
-
-            {% for restaurant in restaurants %}
-            <div class="restaurant-card mb-4 p-3 border rounded">
-                <img src="{{ url_for('static', filename='img/' + restaurant.restaurantImage) }}" alt="{{ restaurant.restaurantName }} Logo" class="img-fluid mb-2 restaurant-img" />
-                <p class="restaurant-description">
-                    {{ restaurant.restaurantName }} ({{ restaurant.averageScore }} ★)
-                </p>
-                <p class="restaurant-description">
-                    {{ restaurant.restaurantDescription }}
-                </p>
-                <p class="restaurant-description">
-                    <a href="https://www.google.com/search?q={{ restaurant.restaurantName | urlencode }}" target="_blank">
-                        More Info
-                    </a>
-                </p>
-            </div>
-            {% endfor %}
-        </div>
-
-    </main>
+  </main>
 </div>
 
 {% endblock %}
