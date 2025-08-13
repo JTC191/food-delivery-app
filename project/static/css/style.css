@@ -17,16 +17,16 @@
     padding: 30px;              
     text-align: center;         
     border: 5px solid #070707;  
-    border-radius: 10px;        /* Rounded corners */
+    border-radius: 10px;        
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
 }
-
 
 /* Styling for the home page (Second Column) */
 .showcase-column {
     background-color: white;
-    flex: 0 0 45%;            /* Middle section takes 45% of available width */    
-    overflow-y: auto;      
+    flex: 0 0 45%;            
+    overflow-y: auto; 
+    padding-left: 0.75rem;     
 }
 
 .showcase-heading {
@@ -35,57 +35,35 @@
     color: #024f23;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 }
-
-.dish-card {
-    background-color: #f9f9f9;
-    width: 80%;           
-}
-
 
 .dish-card img {
-    width: 80%;
-    max-height: 250px;                  
-    object-fit: fill;                  
-    margin-bottom: 10px;
+    width: 80%;              
+    object-fit: fill;              
 }
 
 .dish-card p {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #333;
-    text-align: center;
+    font-size: 1.25rem;
     font-weight: bold;
+    color: #333;
 }
 
 /* Styling for the home page (Third Column) */
+.restaurant-column {
+    flex: 0 0 27.5%; 
+    overflow-y: auto;
+}
+
 .restaurant-spotlight {
     flex: 0 0 27.5%; 
-    padding: 20px;
+    padding-left: 20px;
     background-color: #ffffff;
     border-left: 1px solid #ddd;
     color: black;
     overflow-y: auto;
 }
 
-.restaurant-column {
-    flex: 0 0 27.5%; 
-    overflow-y: auto;
-}
-
-/* General styling */
-body { /* Ensures child elements stack vertically by default */
-    display: flex;              
-    flex-direction: column;     
-}
-
-html, body {
-    height: 100%;  /* Ensures the body and html take up the full height of the viewport */
-    margin: 0;     
-}
-
-/* Visual settings for the logo, slogan, and header */
+/* Styling for base.html */
 .theme-highlight h1 {
     font-size: 4rem; 
     font-weight: bold;
@@ -99,20 +77,19 @@ html, body {
 }
 
 header {           
-    background-color: #FF5733;  /* Header background color to classic orange in theme with a food delivery website*/
-    color: white;               /* Text color for contrast */
-    text-align: center;         /* Centers the header text */
+    background-color: #FF5733;  
+    color: white;               
+    text-align: center;         
 }
 
-/* General visual settings for the product details page */
+/* Styling for the product details page */
 .col { 
-    text-align: center;         /* Centers content within the column */
+    text-align: center;         
     padding: 15px;
-    border: 2px solid #F9F9F9;  /* Light border */
-    border-radius: 10px;        /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+    border: 2px solid #F9F9F9;  
+    border-radius: 10px;        
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
 }
-
 
 .col-box h3 {
     font-size: 1.25rem;         
@@ -126,16 +103,13 @@ header {
 }
 
 .col-box img {
-    max-width: 65%;             /* Limits image width */
+    max-width: 65%;             
     height: auto;               
-    border-radius: 10px;        /* Rounded corners for the image */
+    border-radius: 10px;        
 }
 
-
-
-
 .restaurant-card {
-    padding: 20px; /* Provides 20px space around the content inside the card */
+    padding: 20px; 
     background-color: #ffffff;
     border: 2px solid #ddd;
     border-radius: 10px;
@@ -155,14 +129,13 @@ header {
     font-weight: 500;
     color: #333;
     white-space: normal;
-    overflow: visible; /* Content will overflow the box and be displayed outside the element’s boundaries */
-    text-overflow: unset; /* Resets any custom handling of overflowing text (defaults to clipping without ellipsis) */
+    overflow: visible; 
+    text-overflow: unset; 
     margin-top: 0;
     text-align: left !important;
 }
 
-/* Styling for the table in the checkout page */
-/* Apply styles only to the body with the class 'dish-card' */
+/* Styling for the checkout page */
 body.dish-card {
     background-image: url('../img/Vegetables_Pic.jpg');
     background-size: cover;

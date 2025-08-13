@@ -107,7 +107,7 @@ INSERT INTO Administrators VALUES (2);
 
 -- Restaurants
 INSERT INTO Restaurant VALUES 
-('R0001', 'Grill''d', 4.5, 'Grill''d is an Australian-owned burger chain founded in 2004 in Hawthorn, Melbourne', 'Grill''d_Logo.png'),
+('R0001', 'Grill''d', 4.5, 'Grill''d is an Australian-owned burger chain founded in 2004 in Hawthorn, Melbourne.', 'Grill''d_Logo.png'),
 ('R0002', 'Subway', 4.4, 'Subway IP LLC, trading as Subway, is an American multinational fast food restaurant franchise that specialises in submarine sandwiches (subs) and wraps.', 'Subway_Logo.jpg'),
 ('R0003', 'Zambrero', 4.6, 'Zambrero is an Australian multinational fast food restaurant franchise serving Mexican cuisine.', 'Zambrero_Logo.png');
 

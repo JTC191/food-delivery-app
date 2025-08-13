@@ -34,7 +34,7 @@
 
       {% for food in foods %}
         {% set food_img = (food.foodImage | replace('static/', '') | replace('img/', '')) %}
-        <div class="dish-card mb-5 p-2 border rounded">
+        <div class="dish-card mb-3 p-3 border rounded">
           <img
             src="{{ url_for('static', filename='img/' ~ food_img) }}"
             alt="{{ food.foodName }}"
@@ -59,15 +59,16 @@
                     </select>
                   </div>
                   <button type="submit"
-                          style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+                          style="margin-top: 20px; padding: 10px 10px; background-color: #28A745; color: white; font-size: 16px; cursor: pointer;">
                     <strong style="color: white;">Add to cart - ${{ food.foodPrice }}</strong>
                   </button>
                 </form>
               </div>
             </div>
+
           {% else %}
             <a href="/"
-               style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+               style="margin-top: 10px; padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; cursor: pointer;">
               <strong style="color: white;">Log in to add to cart - ${{ food.foodPrice }}</strong>
             </a>
           {% endif %}
@@ -75,13 +76,13 @@
       {% endfor %}
     </div>
 
-    <!-- Column 3 = 25% of page width -->
+    <!-- Column 3 = 27.5% of page width -->
     <div class="restaurant-column" style="background-color: #f5f5dc; overflow-y: auto; padding: 0 20px;">
       <h3 class="showcase-heading display-6" style="font-weight: 500;">Restaurant Spotlight</h3>
 
       {% for restaurant in restaurants %}
         {% set r_img = (restaurant.restaurantImage | replace('static/', '') | replace('img/', '')) %}
-        <div class="restaurant-card mb-4 p-3 border rounded">
+        <div class="restaurant-card mb-3 p-3 border rounded">
           <img
             src="{{ url_for('static', filename='img/' ~ r_img) }}"
             alt="{{ restaurant.restaurantName }} Logo"
@@ -101,8 +102,6 @@
         </div>
       {% endfor %}
     </div>
-
   </main>
 </div>
-
 {% endblock %}

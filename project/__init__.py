@@ -13,7 +13,7 @@ def create_app():
     app.secret_key = 'BetterSecretNeeded123'
     # MySQL configurations
     app.config['MYSQL_USER'] = 'root'
-    app.config['MYSQL_PASSWORD'] = 'REMOVED'
+    app.config['MYSQL_PASSWORD'] = 'root'
     app.config['MYSQL_DB'] = 'Assignment2'
     app.config['MYSQL_HOST'] = 'localhost'
     app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
