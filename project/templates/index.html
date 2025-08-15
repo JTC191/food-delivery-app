@@ -6,11 +6,11 @@
   <main style="display: flex; height: 100vh; flex-wrap: nowrap;">
 
     <!-- Column 1 = 27.5% of page width -->
-    <div class="column-flex" style="padding: 45px;">
+    <div class="column-flex" style="padding: 60px;">
       <div class="column-box">
         <h3>Become a Healthy Feeds Dasher</h3>
         <p style="font-size:20px">Join our delivery team and earn while you work!</p>
-        <img src="{{ url_for('static', filename='img/Delivery_Biker.png') }}" alt="Biker" class="img-fluid" />
+        <img src="{{ url_for('static', filename='img/Delivery_Biker.png') }}" alt="Biker" class="img-thumbnail" />
       </div>
 
       <div class="column-box mb-4">
@@ -28,7 +28,7 @@
 
     <!-- Column 2 = 45% of page width -->
     <div class="showcase-column" style="background-color: #f5f5dc">
-      <h3 class="showcase-heading display-6" style="font-weight: 500;">
+      <h3 class="showcase-heading display-7" style="font-weight: 600;">
         Search Results: {{ request.args.get('category', 'All Items') }}
       </h3>
 
@@ -78,7 +78,7 @@
 
     <!-- Column 3 = 27.5% of page width -->
     <div class="restaurant-column" style="background-color: #f5f5dc; overflow-y: auto; padding: 0 20px;">
-      <h3 class="showcase-heading display-6" style="font-weight: 500;">Restaurant Spotlight</h3>
+      <h3 class="showcase-heading display-7" style="font-weight: 600;">Restaurant Spotlight</h3>
 
       {% for restaurant in restaurants %}
         {% set r_img = (restaurant.restaurantImage | replace('static/', '') | replace('img/', '')) %}

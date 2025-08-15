@@ -9,93 +9,83 @@
     background-attachment: fixed;
   }
 </style>
+
 <style>
   table.table-bordered th,
   table.table-bordered td {
-    border: 1px solid rgba(0, 0, 0, 0.1); /* very light gray */
-    background-color: rgba(255, 255, 255, 0.85); /* soft white background */
+    border: 1px solid rgba(0, 0, 0, 0.1); 
+    background-color: rgba(255, 255, 255, 0.85);
   }
-
   table.table-bordered {
     border: none;
   }
-
   thead {
     background-color: rgba(255, 255, 255, 0.9);
   }
-
   tbody tr:nth-child(odd) {
     background-color: rgba(255, 255, 255, 0.75);
   }
-
   tbody tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.6);
   }
 </style>
 
-
-<!-- Order Summary Section -->
 <div class="container mt-4">
-    <div class="row mb-4 border border-3 border-dark">
-        
-        <div class="col bg-light">
-            
-            <h2 class="text-center" restaurant-description>Order Summary</h2>
-            <table class="table table-bordered text-center">
-
-                <thead>
-                    <tr>
-                        <th class = "restaurant-description">Item</th>
-                        <th class = "restaurant-description">Quantity</th>
-                        <th class = "restaurant-description">Unit Price</th>
-                        <th class = "restaurant-description">Total</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    {% set totalCost = namespace(value=10) %}
-                    {% for item in basket %}
-                    <tr>
-                        <td class = "restaurant-description">{{ item.foodName }}</td>
-                        <td class = "restaurant-description">{{ item.quantity }}</td>
-                        <td class = "restaurant-description">${{ item.foodPrice }}</td>
-                        <td class = "restaurant-description">${{ item.foodPrice * item.quantity}}</td>
-                        {% set totalCost.value = totalCost.value + item.foodPrice * item.quantity %}
-                        
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            
-                <tfoot>
-
-                    <tr>
-                        <td colspan="3"; class = "restaurant-description">Delivery Charge (eco-friendly)</td>
-                        <td class = "restaurant-description">+$10.00</td> <!-- Default eco-friendly delivery charge -->
-                    </tr>
-                    
-                    <tr>
-                        <td colspan="3"><strong>Total Price Pre Delivery Choice</strong></td>
-                        <td class = "restaurant-description">${{totalCost.value}}</td> <!-- Updated total with eco-friendly charge -->
-                    </tr>
-                </tfoot>
-            </table>
-            <form action="/" style="flex-shrink: 0;">
-              <button type="submit" 
-                      style="padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
-                <strong>Home</strong>
-              </button>
-            </form>
-        </div>
+  <div class="row mt-4 justify-content-center p-3">
+    <div class="bg-white col-md-6 pt-2 pb-2 border border-3 border-dark rounded">
+      <h2 class="text-center" restaurant-description>Order Summary</h2>
+      <table class="table table-bordered text-center">
+        <thead>
+            <tr>
+                <th class = "restaurant-description">Item</th>
+                <th class = "restaurant-description">Quantity</th>
+                <th class = "restaurant-description">Unit Price</th>
+                <th class = "restaurant-description">Total</th>
+            </tr>
+        </thead>
+          
+        <tbody>
+            {% set totalCost = namespace(value=10) %}
+            {% for item in basket %}
+            <tr>
+                <td class = "restaurant-description">{{ item.foodName }}</td>
+                <td class = "restaurant-description">{{ item.quantity }}</td>
+                <td class = "restaurant-description">${{ item.foodPrice }}</td>
+                <td class = "restaurant-description">${{ item.foodPrice * item.quantity}}</td>
+                {% set totalCost.value = totalCost.value + item.foodPrice * item.quantity %}
+            </tr>
+            {% endfor %}
+        </tbody>
+      
+        <tfoot>
+          <tr>
+              <td colspan="3"; class = "restaurant-description">Delivery Charge (eco-friendly)</td>
+              <td class = "restaurant-description">+$10.00</td> <!-- Default eco-friendly delivery charge -->
+          </tr>  
+          <tr>
+              <td colspan="3"><strong>Total Price Pre Delivery Choice</strong></td>
+              <td class = "restaurant-description">${{totalCost.value}}</td> <!-- Updated total with eco-friendly charge -->
+          </tr>
+        </tfoot>
+      </table>
+      
+      <!-- Home button -->
+      <form action="/" style="flex-shrink: 0;">
+        <button type="submit" 
+          style="padding: 10px 20px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 5px; cursor: pointer;">
+          <strong>Home</strong>
+        </button>
+      </form>
+  
     </div>
-    <div class="row mt-4 justify-content-center p-3">
-            <div class="bg-white col-md-6 pt-2 pb-2 border border-3 border-dark rounded">
-                <h2>Enter Checkout Details Below:</h2>
-                <hr></hr>
-                {{ wtf.render_form(form) }}
-            </div>
+  </div>
+  <div class="row mt-4 justify-content-center p-3">
+    <div class="bg-white col-md-6 pt-2 pb-2 border border-3 border-dark rounded">
+      <h2>Enter Checkout Details Below:</h2>
+      {{ wtf.render_form(form) }}
     </div>
+  </div>
 </div>
-
 </body>
 </html>
 {% endblock %}

@@ -12,24 +12,27 @@
 </style>
 
 <main> 
- 
-  <div class="container my-5">
+  <div class="container my-5"  >
     <div class="row justify-content-center">
       <div class="col-12 col-md-6">
         <div class="card p-4 shadow-sm">
-
           <div class="d-flex align-items-center justify-content-between position-relative mb-3">
+            
+            <!-- Home button -->
             <form action="/" class="flex-shrink-0 m-0">
               <button type="submit" class="btn btn-success px-4">
                 <strong>Home</strong>
               </button>
             </form>
+            
             <!-- Delete all button -->
-          <form method="POST" action="{{ url_for('main.deleting_all')}}">
-                  <button type="submit" class="btn btn-danger w-100">Delete All</button>
-          </form>
-            <h4 style="position: absolute; left: 50%; transform: translateX(-50%); margin: 0; text-decoration: underline;">
+            <form method="POST" action="{{ url_for('main.deleting_all')}}">
+              <button type="submit" class="btn btn-danger w-100">Delete All</button>
             </form>
+              <h4 style="position: absolute; left: 50%; transform: translateX(-50%); margin: 0; text-decoration: underline;">
+            </form>
+
+            <!-- Delivery summary title -->
             <h4 class="position-absolute start-50 translate-middle-x m-0 text-decoration-underline">
               Delivery Summary
             </h4>
@@ -39,12 +42,13 @@
             Created on 12/04/2025 at 5:00 PM
           </p>
 
-          <!-- List of items in the delivery -->
+          <!-- List of items in the basket -->
           <ul class="list-group mb-3">
             {% for item in basket %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
               <div class="d-flex align-items-center">
                 <span>{{item.quantity}} × {{item.foodName}}</span>
+                
                 <!-- Button to remove item from the list -->
                 <form method="POST" action="{{ url_for('main.deleting_from_basket', selection_id = item.selectionID) }}">
                   <button type="submit" class="btn btn-sm btn-outline-danger ms-3 me-3">Remove</button>
@@ -68,18 +72,11 @@
           </ul>
 
           <br>
-          
-        
-
           <!-- Checkout button -->
           <a href="{{ url_for('main.checkout') }}" class="btn btn-success w-100">Checkout</a>
         </div>
       </div>
     </div>
-  </div>
-  
-                    
-                    
+  </div>              
 </main>
-
 {% endblock %}
