@@ -5,14 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>HealthyFeeds - Home</title>
-    
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
         crossorigin="anonymous">
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     {% with messages = get_flashed_messages(category_filter='message') %}
         {% if messages %}
             <div class="alert alert-primary text-center p-2 m-0" role="alert">
@@ -30,15 +28,14 @@
             {% endfor %}
             </div>
         {% endif %}
-        {% endwith %}
-   
-        <header>
-    <div class="row theme-highlight py-2 align-items-center">
-        <div class="col-2 d-flex justify-content-center">
-            <img src="{{ url_for('static', filename='img/Delivery_Biker.png') }}" alt="Biker" style="width: 80px; border-radius: 50%;">
-            <ul style="list-style-type:none">
-        {% if session['user'] and session['user']['is_admin'] %}
-        
+    {% endwith %}
+
+    <header>
+        <div class="row theme-highlight py-2 align-items-center">
+            <div class="col-2 d-flex justify-content-center">
+                <img src="{{ url_for('static', filename='img/Delivery_Biker.png') }}" alt="Biker" style="width: 80px; border-radius: 50%;">
+                <ul style="list-style-type:none">
+                {% if session['user'] and session['user']['is_admin'] %}
                     <li class="nav-item ms-2 me-2">
                         <a href="{{ url_for('main.manage') }}">
                             <button class="btn btn-warning">
@@ -46,17 +43,13 @@
                             </button>
                         </a>
                     </li>
-                    {% endif %}
-                    {% if session['user'] %}
-                    
-                    <!-- Go to cart button -->
+                {% endif %}
+                {% if session['user'] %}
                     <form action="/delivery">
                         <button type="submit" style=" margin-bottom: 10px; margin-top: 10px; background-color: #28A745; color: white; font-size: 16px; border: none; border-radius: 10px; cursor: pointer;">
                             <strong style="color: white;">Go to cart</strong>
                         </button>
                     </form>
-
-                    <!-- Logout button -->
                     <li class="nav-item ms-2 me-2">
                         <a href="{{ url_for('main.logout') }}">
                             <button class="btn btn-dark">
@@ -64,9 +57,7 @@
                             </button>
                         </a>
                     </li>
-                    
-                    <!-- Login button -->
-                    {% else %}
+                {% else %}
                     <li class="nav-item ms-2 me-2">
                         <a href="{{ url_for('main.login') }}">
                             <button class="btn btn-dark">
@@ -74,8 +65,6 @@
                             </button>
                         </a>
                     </li>
-
-                    <!-- Home button -->
                     <li class="nav-item ms-2 me-2 mt-2">
                         <a href="{{ url_for('main.index') }}">
                             <button class="btn btn-dark">
@@ -83,59 +72,56 @@
                             </button>
                         </a>
                     </li>
-                    {% endif %}
-            </ul>
-        </div>
-
-        <!-- Hello user -->
-        <div class="col-7 text-center">
-            {% if session['user'] %}
-                <p class="mb-0">Hello {{session['user'].firstname}}!</p>
-            {% endif %}
-            <h1 class="mb-0">HealthyFeeds</h1>
-            <p class="mb-0">Delicious food for the healthy eater!</p>
-        </div>
-
-        <div class="col-12 col-md-3 d-flex justify-content-end align-items-center gap-2">
-            <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    Food Choices
-                </button>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="{{ url_for('main.index', category='All') }}">All</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('main.index', category='Burgers') }}">Burgers</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('main.index', category='Burritos') }}">Burritos</a></li>
-                    <li><a class="dropdown-item" href="{{ url_for('main.index', category='Salads & Bowls') }}">Salads & Bowls</a></li>
+                {% endif %}
                 </ul>
             </div>
-        
-        </div>
-    </div>
-</div>
-</header>
 
-<!-- Wrap content block in full-width container -->
-<div style="width: 100vw; margin: 0; padding: 0;">
-    {% block content %}
-    {% endblock %}
-</div>
+            <div class="col-8 text-center">
+                {% if session['user'] %}
+                    <p class="mb-0">Hello {{session['user'].firstname}}!</p>
+                {% endif %}
+                <h1 class="mb-0">HealthyFeeds</h1>
+                <p class="mb-0">Delicious food for the healthy eater!</p>
+            </div>
+
+            <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Food Choices
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="{{ url_for('main.index', category='All') }}">All</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.index', category='Burgers') }}">Burgers</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.index', category='Burritos') }}">Burritos</a></li>
+                        <li><a class="dropdown-item" href="{{ url_for('main.index', category='Salads & Bowls') }}">Salads & Bowls</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-fill">
+        <div class="container-fluid p-0">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
     
-<footer class="bg-light py-3 mt-auto">
-    <div class="container d-flex justify-content-between flex-wrap">
-        <div>
-            <h5>Need help? Contact Us!</h5>
-            <p>Email: <a href="mailto:HealthyFeeds@outlook.com">HealthyFeeds@outlook.com</a></p>
+    <footer class="bg-light py-3 mt-auto">
+        <div class="container d-flex justify-content-between flex-wrap">
+            <div>
+                <h5>Need help? Contact Us!</h5>
+                <p>Email: <a href="mailto:HealthyFeeds@outlook.com">HealthyFeeds@outlook.com</a></p>
+            </div>
+            <div class="text-end">
+                <h5>Head Office</h5>
+                <p>123 Burger Lane,<br>Brisbane, QLD, 4000, Australia</p>
+            </div>
         </div>
-        <div class="text-end">
-            <h5>Head Office</h5>
-            <p>123 Burger Lane,<br>Brisbane, QLD, 4000, Australia</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
-<!-- Bootstrap JS (Dropdown functionality) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
