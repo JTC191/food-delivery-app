@@ -17,7 +17,7 @@ It simulates a real-world online ordering system, complete with user accounts, r
 ## Tech Stack
 
 - Python (Flask)  
-- HTML/CSS/JavaScript  
+- HTML/CSS/Bootstrap 
 - MySQL  
 
 ## Setup Instructions
