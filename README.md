@@ -1,6 +1,6 @@
 # Food Delivery Web App
 
-A full-stack food delivery platform built for IFN582 (Web Computing) at QUT.  
+A full-stack food delivery platform built for IFN582 (Rapid Web Development) at QUT.  
 It simulates a real-world online ordering system, complete with user accounts, restaurant listings, cart functionality, and admin features.
 
 
