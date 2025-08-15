@@ -11,7 +11,7 @@ It simulates a real-world online ordering system, complete with user accounts, r
 - Admin-only access and functionality  
 - Dynamic cart system tied to a user's basket  
 - Relational MySQL database schema  
-- Flask backend with HTML/CSS/Flask frontend  
+- Flask backend with HTML/CSS/Bootstrap frontend  
 
 
 ## Tech Stack
@@ -63,7 +63,7 @@ This system comes preloaded with:
 
 You can create your own test users or edit the seeding logic in `Assignment2.SQL`.
 
-Alternatively, admin account details for one admin are provided below:
+Alternatively, an admin account details are provided below:
 
 username: admin
 
@@ -80,7 +80,7 @@ If you'd like a walk-through or want to know more about the architecture, feel f
 ---
 
 ## Contact
-This project was completed as a group assignment for IFN582 (Web Computing) at QUT by Joshua Cox and Alek Karoli.
+This project was completed as a group assignment for IFN582 at QUT by Joshua Cox and Alek Karoli.
 
 Joshua Cox
 - Built the entire front-end interface using HTML and CSS
@@ -91,7 +91,7 @@ Joshua Cox
 
 - Contributed to the SQL database design and schema creation
 
-- Participated in testing and debugging throughout the development process
+- Participated in testing and debugging
 
 Alek Karoli
 - Implemented user authentication and session management
