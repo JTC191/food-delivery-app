@@ -1,0 +1,170 @@
+/* Styling for the home page (First Column) */
+.column-flex {
+    display: flex;
+    flex-direction: column;     
+    gap: 20px;                           
+    flex: 0 0 27.5%;             
+    background-image: url('../img/Salad_Background.webp');
+    background-size: cover;     
+    background-position: center;
+    overflow-y: auto;   
+}
+
+.column-box {
+    background-color: #ffffff;               
+    text-align: center;         
+    border: 3px solid #070707;  
+}
+
+/* Styling for the home page (Second Column) */
+.showcase-column {
+    background-color: white;
+    flex: 0 0 45%;            
+    overflow-y: auto; 
+    padding-left: 1rem;     
+}
+
+.showcase-heading {
+    text-align: left;
+    color: #024f23;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.dish-card img {
+    width: 80%;              
+    object-fit: fill;              
+}
+
+.dish-card p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Styling for the home page (Third Column) */
+.restaurant-column {
+    flex: 0 0 27.5%; 
+    overflow-y: auto;
+}
+
+.restaurant-spotlight {
+    flex: 0 0 25%; 
+    padding-left: 20px;
+    background-color: #ffffff;
+    border-left: 1px solid #ddd;
+    color: black;
+    overflow-y: auto;
+}
+
+/* Styling for base.html */
+.theme-highlight h1 {
+    font-size: 4rem; 
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.theme-highlight p { 
+    font-size: 1.3rem;
+    font-style: italic;
+    margin: 0;
+}
+
+header {           
+    background-color: #FF5733;  
+    color: white;               
+    text-align: center;         
+}
+
+/* Styling for the product details page */
+.col { 
+    text-align: center;         
+    padding: 15px;
+    border: 2px solid #F9F9F9;  
+    border-radius: 10px;        
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.col-box h3 {
+    font-size: 1.25rem;         
+    font-weight: 600;          
+    color: #333;              
+}
+
+.col-box p {
+    font-size: 1rem;            
+    color: #666;                
+}
+
+.col-box img {
+    max-width: 65%;             
+    height: auto;               
+    border-radius: 10px;        
+}
+
+.restaurant-card {
+    padding: 20px; 
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.restaurant-img {
+    width: 40%;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.restaurant-description {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    white-space: normal;
+    overflow: visible; 
+    text-overflow: unset; 
+    margin-top: 0;
+    text-align: left !important;
+}
+
+/* Styling for the checkout page */
+body.dish-card {
+    background-image: url('../img/Vegetables_Pic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dish-card {
+    background-image: url('../img/Vegetables_Pic.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.dish-card th, .dish-card td {
+    border: 1px solid black; 
+    padding: 8px;
+}
+
+.dish-card thead th {
+    border: 1px solid black; 
+}
+
+.dish-card tr {
+    border: 1px solid black;
+}
+
+.dish-card .form-control {
+    border: 1px solid black;
+}
+
+.dish-card .card {
+    border: 1px solid black;
+}
+
+.dish-card .dropdown-menu {
+    border: 1px solid black;
+}
